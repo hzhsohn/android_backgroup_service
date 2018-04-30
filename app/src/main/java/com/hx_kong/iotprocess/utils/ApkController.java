@@ -1,8 +1,5 @@
-package com.hx_kong.hxkiotprocess.utils;
+package com.hx_kong.iotprocess.utils;
  
-import java.io.File;
-import java.io.PrintWriter;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -10,6 +7,9 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.PrintWriter;
  
 /**
  * 描述: app安装操作              

@@ -1,4 +1,4 @@
-package com.hx_kong.hxkiotprocess;
+package com.hx_kong.iotprocess;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,18 +11,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
-
-import com.hx_kong.hxkiotprocess.service.ProcessMonitorService;
-import com.hx_kong.hxkiotprocess.utils.ApkController;
-
+import com.hx_kong.iotprocess.service.ProcessMonitorService;
+import com.hx_kong.iotprocess.utils.ApkController;
 import java.io.File;
 
 public class MainActivity extends Activity{
 
     private Button mBtnInstall ;
-
     private Button mBtnUninstall ;
-
     private Context mContext ;
 
     @Override
@@ -40,8 +36,6 @@ public class MainActivity extends Activity{
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"使用浏览器地址唤醒后台 hxk://back-group-service:80", Toast.LENGTH_LONG).show();
-
                 //安装APP
                 String path=Environment.getExternalStorageDirectory()+"/Download/"+"getkey.apk";
                 ApkController.install(path, mContext) ;
@@ -54,6 +48,7 @@ public class MainActivity extends Activity{
                     Toast.makeText(MainActivity.this,"找不到APK", Toast.LENGTH_LONG).show();
                 }
             }
+
         }) ;
 
         mBtnUninstall.setOnClickListener(new OnClickListener() {

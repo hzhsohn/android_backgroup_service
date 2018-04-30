@@ -1,4 +1,4 @@
-package com.hx_kong.hxkiotprocess.utils;
+package com.hx_kong.iotprocess.utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
