@@ -21,27 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RunActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
-                    android:host="back-group-service"
-                    android:scheme="hxk" />
-            </intent-filter>
-        </activity>
-
-        <service android:name=".service.ProcessMonitorService"></service>
+        <service android:name=".service.ProcessMonitorService" />
 
         <receiver android:name=".service.AlarmReceiver">
             <intent-filter>
@@ -49,6 +30,27 @@
             </intent-filter>
         </receiver>
 
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="back-group-service"
+                    android:scheme="hxk" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".RunActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="back-group-service"
+                    android:scheme="hxk" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

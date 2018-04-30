@@ -17,8 +17,6 @@ import java.io.File;
 
 public class MainActivity extends Activity{
 
-    private Button mBtnInstall ;
-    private Button mBtnUninstall ;
     private Context mContext ;
 
     @Override
@@ -26,53 +24,12 @@ public class MainActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = MainActivity.this ;
-        mBtnInstall = (Button)findViewById(R.id.btn_install) ;
 
+        //APK图标是隐藏的
+        //启用服务
         Intent intent = new Intent(mContext,ProcessMonitorService.class);
         startService(intent) ;
-
-        mBtnUninstall = (Button)findViewById(R.id.btn_unstall) ;
-        mBtnInstall.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                //安装APP
-                String path=Environment.getExternalStorageDirectory()+"/Download/"+"getkey.apk";
-                ApkController.install(path, mContext) ;
-                String packageName =  ApkController.getPagckageName(mContext,new File(path));
-                if(null!=packageName) {
-                    ApkController.startAPP(mContext, packageName);
-                }
-                else
-                {
-                    Toast.makeText(MainActivity.this,"找不到APK", Toast.LENGTH_LONG).show();
-                }
-            }
-
-        }) ;
-
-        mBtnUninstall.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //关闭APP
-                ApkController.uninstall("ccom.hx_kong.hxkiotprocess",mContext) ;
-            }
-        });
+        //关闭窗体
+        finish();
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        //getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        /*if (id == R.id.action_settings) {
-            return true;
-        }*/
-        return super.onOptionsItemSelected(item);
-    }
-
 }
