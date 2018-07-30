@@ -38,7 +38,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
-                    android:host="back-group-service"
+                    android:host="service.main"
                     android:scheme="hxk" />
             </intent-filter>
         </activity>
@@ -47,7 +47,7 @@
             <intent-filter>
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
-                    android:host="back-group-service"
+                    android:host="service.run"
                     android:scheme="hxk" />
             </intent-filter>
         </activity>
