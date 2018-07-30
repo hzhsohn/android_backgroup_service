@@ -47,8 +47,10 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <!--
+                隐藏APP图标
                 <action android:name="android.intent.action.VIEW" />
-                <data android:host="iotprocess.main" android:scheme="hxk" />
+                <data android:host="iotprocess.main" android:scheme="hxk" />-->
             </intent-filter>
         </activity>
 
