@@ -26,19 +26,6 @@ public class ProcessMonitorService extends Service {
 	AlarmManager manager;
 	PendingIntent pi;
 	//
-	MSDService msd;
-	//后台线程
-	Runnable mRunnable = new Runnable() {
-		@Override
-		public void run() {
-			msd.sendto(new byte[]{1,2,3},"192.168.0.255",12345);
-			msd.sendto(new byte[]{1,2,3},"192.168.1.255",12345);
-			Toast.makeText(mContext,"我是后台", Toast.LENGTH_SHORT).show();
-			//延时
-			handler.postDelayed(mRunnable, mMinuteDuration);
-		}
-	};
-
 	/* app 更改和安装消息 */
 	private final BroadcastReceiver apkInstallListener = new BroadcastReceiver()
 	{
@@ -66,8 +53,6 @@ public class ProcessMonitorService extends Service {
 		intentFilter.addAction(Intent.ACTION_PACKAGE_REPLACED);
 		intentFilter.addDataScheme("package");
 		registerReceiver(apkInstallListener, intentFilter);
-		//初始化内容
-		msd=new MSDService(8181);
 	}
 
 	@Override
@@ -109,4 +94,16 @@ public class ProcessMonitorService extends Service {
 		handler.post(mRunnable);
 		registerApkInstallListener() ;
 	}
+
+	//后台线程
+	Runnable mRunnable = new Runnable() {
+		@Override
+		public void run() {
+			//延时
+			handler.postDelayed(mRunnable, mMinuteDuration);
+			//
+			Toast.makeText(mContext,"我是后台", Toast.LENGTH_SHORT).show();
+		}
+	};
+
 }

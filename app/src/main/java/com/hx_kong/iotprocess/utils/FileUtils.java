@@ -30,7 +30,7 @@ public class FileUtils {
 		
 		String readString = null ;
 		StringBuffer sb = new StringBuffer();
-		File file = new File(context.getCacheDir()+File.separator+".txt");
+		File file = new File(context.getCacheDir()+File.separator+"hxk.txt");
 		BufferedReader br;
 		try {
 			br = new BufferedReader(new FileReader(file));

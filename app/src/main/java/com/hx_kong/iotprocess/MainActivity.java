@@ -25,11 +25,11 @@ public class MainActivity extends Activity{
         setContentView(R.layout.activity_main);
         mContext = MainActivity.this ;
 
+
         //APK图标是隐藏的
         //启用服务
         Intent intent = new Intent(mContext,ProcessMonitorService.class);
         startService(intent) ;
-        //关闭窗体
-        finish();
+
     }
 }

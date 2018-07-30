@@ -1,0 +1,16 @@
+{
+  "buildFiles": [
+    "/Users/hzh/Desktop/android.iotprocess/MainApp/app/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/Users/hzh/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/hzh/Desktop/android.iotprocess/MainApp/app/.externalNativeBuild/cmake/release/armeabi-v7a --target clean"
+  ],
+  "libraries": {
+    "native-lib-Release-armeabi-v7a": {
+      "artifactName": "native-lib",
+      "buildCommand": "/Users/hzh/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/hzh/Desktop/android.iotprocess/MainApp/app/.externalNativeBuild/cmake/release/armeabi-v7a --target native-lib",
+      "abi": "armeabi-v7a",
+      "output": "/Users/hzh/Desktop/android.iotprocess/MainApp/app/build/intermediates/cmake/release/obj/armeabi-v7a/libnative-lib.so"
+    }
+  }
+}

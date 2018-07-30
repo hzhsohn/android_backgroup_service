@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 
     <application
         android:allowBackup="true"
@@ -22,11 +23,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!-- 安装APK -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.hx-kong.iotprocess.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <service android:name=".service.ProcessMonitorService" />
 
         <receiver android:name=".service.AlarmReceiver">
             <intent-filter>
-                <action android:name="com.hx_kong.iotprocess" />
+                <action android:name="com.hx-kong.iotprocess.AlarmReceiver" />
             </intent-filter>
         </receiver>
 
@@ -36,21 +48,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data
-                    android:host="service.main"
-                    android:scheme="hxk" />
+                <data android:host="iotprocess.main" android:scheme="hxk" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".RunActivity">
-            <intent-filter>
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data
-                    android:host="service.run"
-                    android:scheme="hxk" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
